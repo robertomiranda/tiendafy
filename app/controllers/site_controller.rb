@@ -8,12 +8,14 @@ class SiteController < ApplicationController
   end 
   
   def notify
-    notify = EPaymentPlan::Notification.new(request.raw_post)
-    if notify.acknowledge 
+    notify = ActiveMerchant::Billing::Integrations::EPaymentPlan::Notification.new(request.raw_post)
+    Rails.logger.info "Llegue a Tiendafy: SiteController#notify"
+    allowed = notify.acknowledge
+    Rails.logger.info "Termine acknowledge: Order#notify_store"
+    if allowed
       Rails.logger.info("OK")
       render :text => "ok"
     else
-      debugger
       Rails.logger.info("ERROR")
       render :text => "error"
     end

@@ -8,6 +8,7 @@ gem 'sqlite3'
 gem 'activemerchant', :git => 'git://github.com/guilleiguaran/active_merchant.git', :branch => 'epaymentplan'
 #gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'jquery-rails'
+gem 'unicorn'
 
 group :production do
   gem 'pg'

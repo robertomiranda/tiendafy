@@ -1,12 +1,12 @@
 class SiteController < ApplicationController 
   include ActiveMerchant::Billing::Integrations::ActionViewHelper
-  
-  def form  
+
+  def form
   end
-  
-  def test 
-  end 
-  
+
+  def test
+  end
+
   def notify
     notify = ActiveMerchant::Billing::Integrations::EPaymentPlan::Notification.new(request.raw_post)
     Rails.logger.info "Llegue a Tiendafy: SiteController#notify"
